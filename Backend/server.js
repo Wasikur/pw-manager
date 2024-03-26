@@ -43,6 +43,7 @@ const passopModel = new mongoose.model("passopdetails", passopSchema);
 app.get("/", async (req, res) => {
   try {
     const data = await passopModel.find();
+     res.json({ message: "Server is Up" });
     res.json(data);
   } catch (error) {
     console.error("Error while fetching data:", error);
