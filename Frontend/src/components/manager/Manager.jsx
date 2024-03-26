@@ -113,7 +113,7 @@ const Manager = () => {
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
       </div>
 
-      <div className="p-3 md:p-0 md:mycontainer md:min-h-[88vh] min-h-[84.8vh]">
+      <div className="p-3 md:p-0 md:mycontainer min-h-[84.8vh]">
         <h1 className="text-4xl text font-bold text-center">
           <span className="text-green-500">&lt;</span>
           Pass
