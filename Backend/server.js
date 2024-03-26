@@ -10,7 +10,13 @@ const app = express();
 const port = 5000;
 
 app.use(bodyParser.json());
-app.use(cors());
+// Handling cors
+const corsOptions = {
+  origin: "https://pw-manager-black.vercel.app/",
+  method: "GET,HEAD,PUT,PATCH,POST,DELETE",
+  credentials: true,
+};
+app.use(cors(corsOptions));
 
 app.use(express.json());
 
