@@ -17,7 +17,7 @@ const Manager = () => {
 
   const fetchData = async () => {
     try {
-      const response = await fetch("http://localhost:5000/");
+      const response = await fetch("https://pw-manager-backend.vercel.app/");
       if (!response.ok) {
         throw new Error("Failed to fetch data");
       }
@@ -42,7 +42,7 @@ const Manager = () => {
 
   const savePassword = async () => {
     try {
-      const response = await fetch("http://localhost:5000/add", {
+      const response = await fetch("https://pw-manager-backend.vercel.app/add", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const Manager = () => {
         "Do you really want to delete the entry?"
       );
       if (!confirmation) return;
-      const response = await fetch(`http://localhost:5000/delete/${id}`, {
+      const response = await fetch(`https://pw-manager-backend.vercel.app/delete/${id}`, {
         method: "DELETE",
       });
       if (!response.ok) {
