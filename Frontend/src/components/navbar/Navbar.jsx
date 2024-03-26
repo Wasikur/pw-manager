@@ -1,6 +1,10 @@
 import React from "react";
 
 const Navbar = () => {
+   const openExternalLink = (url) => {
+    console.log("Opening external link:", url);
+    window.open(url);
+  };
   return (
     <nav className="bg-slate-800 text-white">
       <div className="flex justify-between items-center px-6 py-5 h-14 mycontainer">
@@ -22,7 +26,12 @@ const Navbar = () => {
             </a>
           </li>
         </ul> */}
-        <button className="flex justify-between items-center text-white bg-green-700 my-5 rounded-full ring-white ring-1">
+       <button
+          className="flex justify-between items-center text-white bg-green-700 my-5 rounded-full ring-white ring-1"
+          onClick={() =>
+            openExternalLink("https://github.com/Wasikur/pw-manager.git")
+          }
+        >
           <img className="p-2 w-10 " src="icons/github.svg" alt="github-logo" />
           <span className="font-bold px-2 ">GitHub</span>
         </button>
