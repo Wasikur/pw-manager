@@ -1,7 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { v4 as uuidv4 } from "uuid";
 
 const Manager = () => {
   const [form, setForm] = useState({
@@ -23,7 +22,6 @@ const Manager = () => {
         throw new Error("Failed to fetch data");
       }
       const data = await response.json();
-      console.log(passwordArray);
       setPasswordArray(data);
     } catch (error) {
       console.error("Error fetching data:", error);
@@ -55,12 +53,12 @@ const Manager = () => {
         throw new Error("Failed to save password");
       }
       await response.json();
-      // toast.success("Password saved successfully");
+      toast.success("Password saved successfully");
       setForm({ site: "", username: "", password: "" });
       fetchData(); // Fetch updated data after saving
     } catch (error) {
       console.error("Error saving password:", error);
-      // toast.error("Error saving password");
+      toast.error("Error saving password");
     }
   };
 
@@ -77,11 +75,11 @@ const Manager = () => {
         throw new Error("Failed to delete password");
       }
       await response.json();
-      // toast.success("Password deleted successfully");
+      toast.success("Password deleted successfully");
       fetchData(); // Fetch updated data after deletion
     } catch (error) {
       console.error("Error deleting password:", error);
-      // toast.error("Error deleting password");
+      toast.error("Error deleting password");
     }
   };
 
@@ -111,20 +109,6 @@ const Manager = () => {
 
   return (
     <>
-      <ToastContainer
-        position="top-right"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-        theme="light"
-      />
-      {/* Same as */}
-      <ToastContainer />
       <div className="absolute inset-0 -z-10 h-full w-full bg-green-50 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px]">
         <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-fuchsia-400 opacity-20 blur-[100px]"></div>
       </div>
